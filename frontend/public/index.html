@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medzilla - Risk Analysis</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Medzilla - Risk Analysis</h1>
+        <p>Enter patient symptoms below (separated by commas):</p>
+        
+        <input type="text" id="symptomsInput" placeholder="e.g. severe headache, blurred vision">
+        <button onclick="sendToAI()">Assess Patient Risk</button>
+
+        <div class="result-box" id="resultBox">
+            <h2 style="margin-top:0;">Assessment Complete</h2>
+            <p><strong>Risk Level:</strong> <span id="uiRisk"></span></p>
+            <p><strong>Recommendation:</strong> <span id="uiRec"></span></p>
+            <p><strong>AI Reasoning:</strong> <span id="uiReason"></span></p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

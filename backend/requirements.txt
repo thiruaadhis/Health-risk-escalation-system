@@ -1,0 +1,13 @@
+# backend/requirements.txt
+
+# The Web Server Engine
+Flask
+Flask-Cors
+
+# The NLP Bouncer Brain
+spacy
+
+# The Machine Learning Arsenal (For our next step!)
+scikit-learn
+pandas
+numpy

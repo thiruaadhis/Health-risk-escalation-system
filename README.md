@@ -1,39 +1,39 @@
-# Smart Emergency Triage & Risk Escalation System
-
-
+# Medzilla - Risk Analysis
 
 ## Overview
-The Smart Emergency Triage & Risk Escalation System is a web-based clinical decision support application designed to alleviate emergency department overcrowding. By analyzing patient symptoms, demographic data, and basic health indicators, the system provides a transparent, AI-assisted estimation of medical risk and categorizes the urgency of care required. 
+Medzilla is a high-performance, AI-driven medical triage and risk escalation platform. Designed to minimize Time-to-Triage (TTT) in high-stakes emergency environments, Medzilla uses a hybrid pipeline combining Natural Language Processing (NLP) with deterministic Emergency Severity Index (ESI) protocols to instantly evaluate raw patient symptoms. 
 
-This project operates on a hybrid architecture, bridging the gap between digital symptom checkers and clinical diagnosis by utilizing definitive rule-based safety checks alongside a machine learning prediction model.
+This architecture ensures critical, life-threatening conditions (Level 1/Level 2 emergencies) bypass probabilistic machine learning models and trigger immediate escalation, while non-critical cases are safely queued for advanced risk probability analysis.
 
-## Core Features
-* **Rule-Based Red Flag Detection:** Instantly identifies critical symptom combinations (e.g., chest pain and shortness of breath) to bypass standard evaluation and immediately recommend emergency care.
-* **Machine Learning Risk Model:** Evaluates non-critical symptom combinations, demographics, and vitals using lightweight ML models (Random Forest / Logistic Regression) to output a calibrated risk probability score.
-* **Explainable AI (XAI) Layer:** Utilizes SHAP (SHapley Additive exPlanations) to provide transparent reasoning for every triage recommendation, building clinical trust and user comprehension.
-* **Actionable Urgency Mapping:** Translates technical risk scores into clear, actionable directives: Home Care, Clinic Visit, or Emergency Care.
+## Current Architecture
+The system is built on a decoupled, micro-frontend architecture for maximum resilience and speed:
 
-## Technology Stack
-* **Frontend:** React, HTML, CSS, JavaScript
-* **Backend:** Python, Flask (or FastAPI)
-* **Machine Learning:** Scikit-learn, Pandas, NumPy
-* **Explainability:** SHAP
+* **Frontend (The Patient Kiosk):** A frictionless, login-free web interface built with pure HTML, CSS, and Vanilla JavaScript. It features a "Clinical Stealth" monochromatic carbon-fiber design and utilizes the Comfortaa typeface for optimal readability under high cognitive load.
+* **API Gateway:** A Python Flask REST API handling cross-origin (CORS) asynchronous requests from the client.
+* **The NLP Bouncer (Pre-Screener):** Powered by SpaCy's `en_core_web_md` word vector embeddings. It translates raw, colloquial patient inputs into standardized medical terminology using a 0.75 semantic similarity threshold.
+* **ESI Deterministic Engine:** A hardcoded, rule-based clinical engine that checks standardized symptoms against official Emergency Severity Index protocols (Trauma, Sepsis, Cardiac, Neurological, Toxicology).
 
-## Current Project Status: Active Development (Phase 1)
-The project is currently in the initial scaffolding and architecture phase. 
+## Key Features Developed
+1.  **Frictionless Ingestion:** Zero authentication barriers to ensure immediate patient data entry during active emergencies.
+2.  **Semantic Translation:** Automatically maps chaotic symptom descriptions (e.g., "my head is pounding") to clinical ontology.
+3.  **Titanium Triage Rules:** Instantly flags critical conditions like strokes, internal hemorrhaging, and airway collapse.
+4.  **Asynchronous Communication:** Uses modern JS Fetch API to interact with the Python backend without page reloads.
 
-**Completed Milestones:**
-* Repository initialized and directory structure established.
-* Separation of concerns implemented (isolated frontend UI, backend API, and ML engine environments).
-* High-level system architecture and clinical urgency mapping finalized.
+## Installation & Setup
+To run the Medzilla ecosystem locally:
 
-**Immediate Next Steps (In Progress):**
-* Development of the `clinical_rules.py` hardcoded triage engine.
-* Training and serialization of the initial ML model using public healthcare datasets.
-* Building the React functional components for the user input form.
+1.  **Activate the Python Virtual Environment:**
+    `source venv/bin/activate` (Linux/WSL) or `venv\Scripts\activate` (Windows)
+2.  **Install Backend Dependencies:**
+    `pip install -r backend/requirements.txt`
+3.  **Boot the Flask Server (Port 5000):**
+    `python backend/app.py`
+4.  **Launch the Patient Kiosk:**
+    Open `frontend/public/index.html` via VS Code Live Server or a local HTTP server.
 
-## Local Setup & Installation (Coming Soon)
-*(Instructions for `pip install -r requirements.txt` and `npm install` will be populated here once the dependency trees are finalized in the upcoming commits.)*
-
-## Disclaimer
-This system is a proof-of-concept designed for hackathon demonstration purposes. It is a decision-support tool and does not provide definitive medical diagnoses. Users experiencing severe symptoms should contact emergency services immediately.
+## Roadmap & Next Steps
+* **Phase 1 (Complete):** NLP Vectorization & ESI-Compliant Bouncer.
+* **Phase 2 (In Progress):** Tabular Data Ingestion & Feature Selection.
+* **Phase 3:** Training and serializing a Scikit-Learn Random Forest Classifier to calculate exact risk probabilities for non-emergency patients.
+* **Phase 4:** Development of the secure Doctor's Command Center (Admin Dashboard) with live Kanban sorting.
+* **Phase 5:** Integration of real-time Computer Vision (OpenCV) for behavioral distress and facial drooping analysis.
